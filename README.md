@@ -1,9 +1,3 @@
-# Nuvia
-
-농장 구역, 작물, 환경 측정 기록을 관리하는 PHP 웹앱입니다. 현재 XAMPP 프로젝트를 기준으로, PHP 페이지에서 HTML을 렌더링하고 데스크톱과 모바일은 같은 페이지에 반응형 CSS를 적용하는 구조를 제안합니다. DB는 XAMPP의 MariaDB/MySQL 사용을 가정했습니다.
-
-참고 자료 [Figma 화면](https://www.figma.com/design/wnm4yIsNTDIVZMuwMdiGGk/Nuvia?node-id=0-1) · [Notion 기능명세서](https://app.notion.com/p/4081ca2835ff809ca68ceb0697aff782)
-
 ## 파일 구조
 
 아래 PHP·CSS·SQL 파일은 구현할 때 만들 파일입니다. 현재 진입점은 `index.php`입니다.
@@ -58,14 +52,7 @@ Nuvia/
 └── README.md
 ```
 
-## 백엔드 작업 순서
 
-1. **회원가입 → 로그인 → 로그아웃.** `users` 테이블을 만들고 아이디 중복 확인, 비밀번호 해시, 세션 생성·종료를 연결합니다.
-2. **작물 등록 → 목록·상세 → 즐겨찾기.** `zones`, `crops`, `favorites`를 추가합니다. Figma의 작물 등록 완료 화면은 등록 직후 상세 화면에 표시하는 완료 상태로 구성할 수 있습니다. 대시보드에서 등록 작물과 즐겨찾기 개수를 조회합니다.
-3. **측정 기록 등록 → 검색.** `measurements`에 작물, 측정일, 온도, 습도, 토양 수분을 저장하고 작물 이름과 날짜로 검색합니다. 이후 같은 조회 로직을 수정·삭제 화면, CSV/Excel 다운로드, 기간별 차트에 활용합니다.
-4. **환경 범위 설정 → 이상 감지·이력.** `environment_thresholds`와 `environment_alerts`를 추가하고, 측정값 저장 시 설정한 범위를 벗어나는지 확인합니다.
-
-작물·측정 기록 등 로그인 후 접근하는 데이터는 조회와 수정 시 계정의 접근 범위를 확인합니다. 폼의 저장·수정·삭제 요청은 POST로 처리합니다. 현재 프로젝트가 XAMPP의 `htdocs` 아래에 있으므로 내부 PHP와 SQL 파일을 추가할 때 `app/`, `database/`, `includes/`의 직접 HTTP 접근을 차단합니다. DB 접속 정보는 환경 변수로 전달합니다.
 
 ## 구현 전에 확인할 항목
 

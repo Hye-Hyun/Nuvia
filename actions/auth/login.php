@@ -9,7 +9,7 @@
 
     function loginError(string $message): void{
         $_SESSION['login_error'] = $message;
-        header('Location: /Nuvia/pages/auth/login.php');
+        header('Location: /Nuvia/pages/auth/login.php', true, 303);
         exit;
     }
 
@@ -60,13 +60,13 @@
         loginError('아이디 혹은 비밀번호를 확인해주세요.');
     }
 
-    if(!session_regenerate_id()){
+    if(!session_regenerate_id(true)){
         loginError('다시 시도해주세요.');
     }
 
     $_SESSION['user_id'] = (int) $user['ID'];
     unset($_SESSION['login_csrf'], $_SESSION['login_error']);
-    header('Location: /Nuvia/pages/auth/dashboard.php', true, 303);
+    header('Location: /Nuvia/pages/dashboard.php', true, 303);
     exit;
 
 

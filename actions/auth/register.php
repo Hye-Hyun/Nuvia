@@ -43,7 +43,7 @@
 
     $passwordBytes = strlen($password);
 
-    if (!preg_match('/\A[A-Za-Z0-9!@#_\-]{12,72}\z/', $password)){
+    if (!preg_match('/\A[A-Za-z0-9!@#_-]{12,72}\z/', $password)){
         registrationError('비밀번호는 12~72자로 영문, 숫자, 특수기호(!, @, #, -, _)만 사용해 입력해 주세요.');
     } //비밀번호 형식 에러
 

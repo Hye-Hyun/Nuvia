@@ -1,0 +1,14 @@
+#local 환경 설정
+.env
+.env.*
+!.env.example
+
+#개발 중 생성 로그
+*.log
+
+#로컬 db 백업
+/database/backups/
+
+#개발 중 테스트 파일
+/test.html
+README.md 
